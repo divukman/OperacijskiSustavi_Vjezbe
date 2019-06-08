@@ -2,7 +2,6 @@
 
 ## Materijali za vjezbe iz predmeta operacijski sustavi - Visoka Skola Aspira 2018.
 
-[SRC DIR](https://bitbucket.org/divukman/operacijskisustavi-vjezbe/src)
 
 ### [Operacijski sustavi - Vjezbe.pdf](https://github.com/divukman/OperacijskiSustavi_Vjezbe/blob/master/Operacijski%20sustavi%20-%20Vje%C5%BEbe%201%20-%2010.pdf):
 #### Sadrzaj:
