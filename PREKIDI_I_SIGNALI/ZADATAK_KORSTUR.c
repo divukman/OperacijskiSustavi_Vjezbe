@@ -1,0 +1,60 @@
+#define _XOPEN_SOURCE 500 // X/Open 5, incorporating POSIX 1995
+
+#include <stdio.h>
+#include <signal.h>
+#include <time.h>
+#include <unistd.h>
+
+#define N 8    /* broj razina prekida */
+
+int OZNAKA_CEKANJA[N] = {0};
+int PRIORITET[N] = {0};
+int TEKUCI_PRIORITET = 0;
+
+
+void obrada_prekida(int j)
+{
+   printf ("Poceo obradu prekida %d\n", j);
+   
+   /* obrada se simulira trošenjem vremena - 10 s */
+     for (int i = 0; i < 10; i++) { 
+		sleep(1);
+		printf("Obrada prekida %d. %d/%ds.\n",j, i+1, 10);		
+	}
+	
+   printf ("Zavrsio obradu prekida %d\n", j);
+}
+
+void prekidna_rutina (int sig)
+{
+   int i, x ,j;
+   time_t t;
+
+   time(&t);
+   printf("Prekidna rutina pozvana u: %s", ctime(&t));
+
+   printf ("Upisi razinu prekida ");
+   scanf ("%d", &i);  
+   
+   OZNAKA_CEKANJA[i] = 1;
+   do {
+	   
+	} while (x > 0);          
+}
+
+int main (void)
+{
+   sigset (SIGINT, prekidna_rutina);
+
+   printf ("Poceo osnovni program\n");
+   
+   /* troši vrijeme da se ima šta prekinuti - 10 s */
+   for (int i = 0; i < 10; i++) {		
+		sleep(1);
+		printf("Main funkcija. %d/%ds.\n", i+1, 10);		
+	}
+	
+   printf ("Zavrsio osnovni program\n");
+
+   return 0;
+}
